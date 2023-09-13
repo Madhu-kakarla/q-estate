@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+.heroSection {
+    background-image: linear-gradient(rgba(0,0,0,0.548), rgba(0,0,0,0.5)), url('/public/assets/hero-image.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 40vw;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heroTitle {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 3vw;
+    font-weight: 300;
+    text-align: center;
+    width: 50vw;
+    line-height: 1.5;
+}

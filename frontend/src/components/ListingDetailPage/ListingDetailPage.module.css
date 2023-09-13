@@ -1,0 +1,38 @@
+.detailsPageContainer {
+	width: 80vw;
+	margin: 100px auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: 10%;
+	font-family: 'Poppins',sans-serif;
+}
+
+.imageContainer img {
+	object-fit: cover;
+	width: 600px;
+}
+
+.title {
+	margin-right: 20px;
+}
+
+.agentDetailsContent {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	width: 90%;
+}
+
+agentTitle {
+	font-size: 20px;
+}
+
+.contactButton {
+	background-color: rgb(255, 0, 0);
+	color: white;
+	border: none;
+	border-radius: 30px;
+	padding: 10px 20px;
+	font-size: 20px;
+}
