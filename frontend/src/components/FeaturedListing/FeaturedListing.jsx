@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import config from '../../config';
-import {Box, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography} from '@mui/material';
+import {Box, Card, CardActionArea, CardActions, CardContent, CardMedia, CircularProgress, Grid, Typography} from '@mui/material';
 import styles from './FeaturedListing.module.css'
 
 const FeaturedListing = () => {
 	const [listingsData, setListingsData] = useState([]);
+	const [isLoadingData, setIsLoadingData] = useState(true);
 
 	const fetchListings = async () => {
 		try {
 			const response = await axios.get(`${config.backendEndpoint}/real-estate-data`);
 			const data = response.data.listings
+			setIsLoadingData(false)
 			setListingsData(data.slice(0,8))
 		} catch(err) {
 			setListingsData([]);
+			setIsLoadingData(true)
 			console.log(err);
 		}
 	}
@@ -25,8 +28,12 @@ const FeaturedListing = () => {
   return (
     <Box sx={{width: '100%'}}>
 			<Grid container rowSpacing={5} columnSpacing={3}>
-				{
-					listingsData.length === 0 ? (
+				{ isLoadingData ? (
+					<Grid item lg={12} className={styles.loadingContainer}>
+						<div><CircularProgress /></div>
+						<div><Typography variant="h6">Loading data...</Typography></div>
+					</Grid>
+				) : listingsData.length === 0 ? (
 						<Grid item>
 							<div className={styles.errorMessage}>
 								<p>No Featured Listings found</p>
